@@ -25,3 +25,36 @@ Client → FastAPI → Debounce Logic → SQLite DB
 cd backend
 pip install -r requirements.txt
 python -m uvicorn app:app --reload
+
+
+## API Usage
+
+### Create Signal
+POST /signals?component=database
+
+### Get Incidents
+GET /incidents
+
+### Close Incident
+POST /incidents/1/rca?rca=Database overload
+
+---
+
+## SRE Concepts Applied
+- Alert deduplication using debouncing logic
+- Incident lifecycle management (OPEN → CLOSED)
+- Basic backpressure handling to avoid alert storms
+
+---
+
+## Trade-offs
+- SQLite used instead of distributed database
+- In-memory debouncing resets on restart
+- Minimal frontend for demonstration
+
+---
+
+## Future Improvements
+- Integrate Kafka for event streaming
+- Use Redis for distributed caching
+- Deploy using Docker & Kubernetes
