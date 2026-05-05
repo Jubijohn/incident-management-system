@@ -25,7 +25,7 @@ Client → FastAPI → Debounce Logic → SQLite DB
 cd backend
 pip install -r requirements.txt
 python -m uvicorn app:app --reload
-
+```
 
 ## API Usage
 
